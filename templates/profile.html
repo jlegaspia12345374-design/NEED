@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>PROFILE</h2>
+<div class="card p-3">
+  <p><strong>ID no:</strong> {{ user.id }}</p>
+  <p><strong>Name:</strong> {{ user.name }}</p>
+  <p><strong>Password:</strong> {{ user.password }}</p>
+  <p><strong>Gmail:</strong> {{ user.gmail }}</p>
+  <a class="btn btn-danger" href="{{ url_for('logout') }}">LOG-OUT</a>
+</div>
+{% endblock %}

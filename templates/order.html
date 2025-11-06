@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>ORDER</h2>
+<form method="post" id="orderForm">
+  <div class="mb-3">
+    <label>Accessory</label>
+    <select id="accessory" class="form-select">
+      {% for a in accessories %}
+      <option value='{{ a.id }}' data-price='{{ a.price }}'>{{ a.name }} - P {{ a.price }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label>Quantity</label>
+    <select id="qty" class="form-select">
+      {% for i in range(1,11) %}
+      <option value="{{ i }}">{{ i }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="button" class="btn btn-success" id="addBtn">ADD ORDER</button>
+  <hr>
+  <h4>Orders</h4>
+  <ul id="ordersList"></ul>
+  <input type="hidden" name="orders_json" id="orders_json">
+  <button class="btn btn-primary mt-2">SUBMIT ORDERS</button>
+</form>
+<script>
+  const addBtn = document.getElementById('addBtn');
+  const orders = [];
+  addBtn.addEventListener('click', () => {
+    const accSelect = document.getElementById('accessory');
+    const qty = parseInt(document.getElementById('qty').value);
+    const id = accSelect.value;
+    const name = accSelect.options[accSelect.selectedIndex].text;
+    const price = parseInt(accSelect.options[accSelect.selectedIndex].dataset.price);
+    const total = price * qty;
+    orders.push({id, name, qty, price, total});
+    document.getElementById('ordersList').innerHTML = orders.map((o,i) => `<li>${o.name} x${o.qty} - P ${o.total}</li>`).join('');
+    document.getElementById('orders_json').value = JSON.stringify(orders);
+  });
+</script>
+{% endblock %}

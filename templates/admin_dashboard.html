@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>ADMIN</h2>
+<div class="d-flex gap-2">
+  <a class="btn btn-outline-primary" href="{{ url_for('admin_users') }}">USERS</a>
+  <a class="btn btn-outline-primary" href="{{ url_for('admin_items') }}">ITEMS</a>
+  <a class="btn btn-outline-danger" href="{{ url_for('logout') }}">LOG-OUT</a>
+</div>
+{% endblock %}

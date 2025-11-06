@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>ADMIN LOG-IN</h2>
+<form method="post">
+  <div class="mb-3"><label>Name</label><input class="form-control" name="admin_name"></div>
+  <div class="mb-3"><label>Password</label><input class="form-control" type="password" name="admin_password"></div>
+  <button class="btn btn-primary">ENTER</button>
+</form>
+{% endblock %}

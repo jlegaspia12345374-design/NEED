@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Metals</h2>
+<a class="btn btn-success mb-2" href="{{ url_for('admin_metals_add') }}">Add</a>
+<table class="table">
+  <thead><tr><th>Name</th><th>Price</th><th>Actions</th></tr></thead>
+  <tbody>
+    {% for m in metals %}
+    <tr>
+      <td>{{ m.name }}</td><td>P {{ m.price }}</td>
+      <td>
+        <a class="btn btn-sm btn-primary" href="{{ url_for('admin_metals_edit', item_id=m.id) }}">Edit</a>
+        <form style="display:inline" method="post" action="{{ url_for('admin_metals_delete', item_id=m.id) }}">
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>ITEMS</h2>
+<div class="d-flex gap-2">
+  <a class="btn btn-outline-primary" href="{{ url_for('admin_accessories') }}">ACCESSORIES</a>
+  <a class="btn btn-outline-primary" href="{{ url_for('admin_metals') }}">METALS</a>
+  <a class="btn btn-outline-primary" href="{{ url_for('admin_jewels') }}">JEWELS</a>
+  <a class="btn btn-outline-primary" href="{{ url_for('admin_designs') }}">DESIGNS</a>
+</div>
+{% endblock %}

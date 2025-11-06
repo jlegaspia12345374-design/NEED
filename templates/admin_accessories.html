@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Accessories</h2>
+<a class="btn btn-success mb-2" href="{{ url_for('admin_accessories_add') }}">Add</a>
+<table class="table">
+  <thead><tr><th>Name</th><th>Price</th><th>Actions</th></tr></thead>
+  <tbody>
+    {% for a in accessories %}
+    <tr>
+      <td>{{ a.name }}</td><td>P {{ a.price }}</td>
+      <td>
+        <a class="btn btn-sm btn-primary" href="{{ url_for('admin_accessories_edit', item_id=a.id) }}">Edit</a>
+        <form style="display:inline" method="post" action="{{ url_for('admin_accessories_delete', item_id=a.id) }}">
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

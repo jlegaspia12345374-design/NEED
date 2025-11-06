@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Accessory</h2>
+<form method="post">
+  <div class="mb-3"><label>Name</label><input class="form-control" name="name" value="{{ item.name }}"></div>
+  <div class="mb-3"><label>Price</label><input class="form-control" name="price" value="{{ item.price }}"></div>
+  <button class="btn btn-primary">Save</button>
+</form>
+{% endblock %}
